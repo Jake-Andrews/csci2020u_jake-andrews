@@ -18,6 +18,11 @@ public class Main extends Application {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
         File mainDirectory = directoryChooser.showDialog(primaryStage);
+        //mainDirectory contains the path to the folder you choose, absolute path
+        WordCounter test = new WordCounter(mainDirectory);
+        test.runWordCounter();
+
+
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 

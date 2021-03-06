@@ -5,14 +5,20 @@ import java.util.*;
 
 public class WordCounter{
 
-    private final Map<String, Integer> wordCounts;
+    private File inputFileName;
+    private Map<String, Integer> wordCounts;
     //used to make sure a word is only counted once per file
     private Map<String, Integer> wordCountPerFile;
 
-    public WordCounter(){
+    public WordCounter(File input){
         wordCounts = new TreeMap<>();
+        this.inputFileName = input;
     }
-
+    /*
+    public void setInputFileName(File input) {
+        inputFileName = input;
+    }
+    */
     public void parseFile(File file) throws IOException{
         System.out.println("Starting parsing the file:" + file.getAbsolutePath());
 
@@ -87,31 +93,20 @@ public class WordCounter{
 
     }
 
-    //main method
-    public static void main(String[] args) {
-        /*
-        if(args.length < 2){
-            System.err.println("Usage: java WordCounter <inputDir> <outfile>");
-            System.exit(0);
-        }
-        */
-
-        File dataDir = new File("../Data/train/spam");
+    public void runWordCounter() {
+        File dataDir = this.inputFileName;
         File outFile = new File("output.txt");
 
-        WordCounter wordCounter = new WordCounter();
         System.out.println("Hello");
         try{
-            wordCounter.parseFile(dataDir);
-            wordCounter.outputWordCount(2, outFile);
+            parseFile(dataDir);
+            outputWordCount(2, outFile);
         }catch(FileNotFoundException e){
             System.err.println("Invalid input dir: " + dataDir.getAbsolutePath());
             e.printStackTrace();
         }catch(IOException e){
             e.printStackTrace();
         }
-
-
     }
-
+    //main method
 }
