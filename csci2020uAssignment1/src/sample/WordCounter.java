@@ -89,14 +89,15 @@ public class WordCounter{
 
     //main method
     public static void main(String[] args) {
-
+        /*
         if(args.length < 2){
             System.err.println("Usage: java WordCounter <inputDir> <outfile>");
             System.exit(0);
         }
+        */
 
-        File dataDir = new File(args[0]);
-        File outFile = new File(args[1]);
+        File dataDir = new File("../Data/train/spam");
+        File outFile = new File("output.txt");
 
         WordCounter wordCounter = new WordCounter();
         System.out.println("Hello");
