@@ -22,6 +22,10 @@ public class Main extends Application {
         WordCounter test = new WordCounter(mainDirectory);
         test.runWordCounter();
 
+        String defaultDirectory = mainDirectory.getPath();
+        System.out.println(defaultDirectory);
+        
+
 
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -30,6 +34,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }
