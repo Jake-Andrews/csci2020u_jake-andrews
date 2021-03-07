@@ -13,7 +13,7 @@ import java.lang.Math.*;
  * This class parses through the entire selected directory,
  * regardless of the file type.
  * that draw the image will incrementally paint on the screen.
- * @param   input The file or directory to start from
+ * @param   file  The file or directory to start from
  * @return  null
  */
 
@@ -21,11 +21,9 @@ public class WordCounter{
 
     private File inputFileName;
     private Map<String, Double> wordCounts;
-    private String[] nonoWords = {"the","sent","received","a", "to"};
-    private List<String> blackListed = Arrays.asList(nonoWords);
     //used to make sure a word is only counted once per file
     private Map<String, Double> wordCountPerFile;
-    private double fileCounter = 1.0;
+    private double fileCounter = 0.0;
 
     public WordCounter(File input){
         this.wordCounts = new TreeMap<>();
@@ -67,8 +65,6 @@ public class WordCounter{
     private boolean isValidWord(String word){
         String allLetters = "^[a-zA-Z]+$";
         // returns true if the word is composed by only letters otherwise returns false;
-        if (blackListed.contains(word)){return false;}
-
         return word.matches(allLetters);
 
     }
@@ -79,7 +75,7 @@ public class WordCounter{
             wordCountPerFile.put(word, 1.0);
             double obj = wordCounts.remove(word);
             obj = obj + 1.0;
-            //System.out.println(obj);
+            System.out.println(obj);
             wordCounts.put(word, obj);
 
         }else{
