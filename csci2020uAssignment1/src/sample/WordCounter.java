@@ -75,7 +75,7 @@ public class WordCounter{
             wordCountPerFile.put(word, 1.0);
             double obj = wordCounts.remove(word);
             obj = obj + 1.0;
-            System.out.println(obj);
+            //System.out.println(obj);
             wordCounts.put(word, obj);
 
         }else{

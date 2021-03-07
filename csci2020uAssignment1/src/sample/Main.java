@@ -67,8 +67,8 @@ public class Main extends Application {
         double numberOfSpamFiles = spamCounts.getFileCounter();
         double numberOfHamFiles = hamCounts.getFileCounter();
         double numberOfFiles = numberOfHamFiles + numberOfSpamFiles;
-        //System.out.println("num of spam files " + numberOfSpamFiles);
-        //System.out.println("num of ham files " + numberOfHamFiles);
+        System.out.println("num of spam files " + numberOfSpamFiles);
+        System.out.println("num of ham files " + numberOfHamFiles);
         System.out.println(spamWordMap.size());
         System.out.println(hamWordMap.size());
         //iterating over the TreeMap that contains spam
