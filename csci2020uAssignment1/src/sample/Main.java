@@ -19,13 +19,22 @@ public class Main extends Application {
         directoryChooser.setInitialDirectory(new File("."));
         File mainDirectory = directoryChooser.showDialog(primaryStage);
         //mainDirectory contains the path to the folder you choose, absolute path
-        WordCounter test = new WordCounter(mainDirectory);
-        test.runWordCounter();
-
         String defaultDirectory = mainDirectory.getPath();
         System.out.println(defaultDirectory);
-        
 
+        //Going through spam folders
+        String spamFile = defaultDirectory + "/test/spam";
+        File spam = new File(spamFile);
+        WordCounter spamCounts = new WordCounter(spam);
+        spamCounts.runWordCounter();
+
+        //Going through ham folders
+        String hamFile = defaultDirectory + "/test/ham";
+        File ham = new File(spamFile);
+        WordCounter hamCounts = new WordCounter(spam);
+        hamCounts.runWordCounter();
+
+        //now we have the two maps
 
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -33,8 +42,5 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-
-        launch(args);
-    }
+    public static void main(String[] args) {launch(args);}
 }
