@@ -5,6 +5,21 @@ import javafx.collections.ObservableList;
 
 import java.util.Map;
 
+/**
+ * DataSource class returns an observableList of test files
+ * that contain all the tested files and their spam probability.
+ * Has functions to compute the probability each file is spam,
+ * and provided acuracy and percision of the calculation
+ * Has appropriate getters
+ * <p>
+ * This class creates a list of all files tested with their spam probability.
+ * @param   spamMap     Treemap containing words and how many files contain them
+ * @param   fileName    String name of the file to read
+ * @param   numFiles    double value file counter
+ * @return  files       ObservableList of test files, list gets file appended after its been read.
+ *
+ */
+
 public class DataSource {
     public static ObservableList<TestFile> files = FXCollections.observableArrayList();
     public Map<String, Double> wordSpamProbabilities;

@@ -7,6 +7,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
+/**
+ * ProbabilityCounter class associates a file and two maps.
+ * Parses through the file, and uses each probability per word
+ * to calculate probability total email is spam
+ * <p>
+ * This class parses through the given file,
+ * updates spam probability and file array after each
+ * valid word.
+ * @param   wordSpamProbabilities  Treemap of words read from file and how many files appeared in
+ * @param   filename              The file or directory to start from
+ * @return  null
+ */
+
 public class ProbabilityCounter {
     public double[] probabilitiesPerFile;
     public String []fileNames;

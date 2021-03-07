@@ -11,6 +11,21 @@ import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
 
+
+/**
+ * The main program that calls WordCounter and TreeMap to implement
+ * calculating the probability an email is spam based on a given word
+ * Program opens with directory chooser, then interprets specified file
+ * paths to train email spam detection, data is saved to a map.
+ * Data is manipulated with specific formulas to calculate probability
+ * of spam. Then finally, sets and displays the stage
+ * <p>
+ * @param   null
+ * @return  null
+ * @see     TableView window
+ */
+
+
 public class Main extends Application {
 
     @Override

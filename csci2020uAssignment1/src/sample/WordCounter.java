@@ -3,6 +3,20 @@ import java.io.*;
 import java.util.*;
 import java.lang.Math.*;
 
+/**
+ * WordCounter class associates a file and two maps.
+ * Parses through the file, counting all files contained
+ * Has functions to put all valid words in the file into a map
+ * and count how many files the word appears in
+ * Has appropriate getters
+ * <p>
+ * This class parses through the entire selected directory,
+ * regardless of the file type.
+ * that draw the image will incrementally paint on the screen.
+ * @param   file  The file or directory to start from
+ * @return  null
+ */
+
 public class WordCounter{
 
     private File inputFileName;

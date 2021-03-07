@@ -2,6 +2,19 @@ package sample;
 
 import java.text.DecimalFormat;
 
+/**
+ * Testfile was a provided class to structure our output list
+ * Has appropriate getters and setters
+ * <p>
+ * This class instantiates the testfile concept, pairing a filename,
+ * spamProbability, and actual class to one file object
+ * @param   filename  The file or directory to start from
+ * @param   spamProbability  double, calculated probability email is spam
+ * @param   actualClass  The true ham or spam value of the file
+ * @return  filename
+ * @return spamProbability
+ */
+
 public class TestFile {
     private String filename;
     private double spamProbability;

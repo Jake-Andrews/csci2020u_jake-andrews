@@ -5,6 +5,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Controller class instantiates tableview format
+ * for output window in main program
+ * <p>
+ * This class sets up table columns
+ * and writes values to each cell
+ * @param   null
+ * @return  null
+ * @see     null
+ */
 
 public class Controller {
 
