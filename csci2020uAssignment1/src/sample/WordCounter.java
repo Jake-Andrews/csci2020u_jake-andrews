@@ -25,7 +25,7 @@ public class WordCounter{
     private List<String> blackListed = Arrays.asList(nonoWords);
     //used to make sure a word is only counted once per file
     private Map<String, Double> wordCountPerFile;
-    private double fileCounter = 1.0;
+    private double fileCounter = 0.0;
 
     public WordCounter(File input){
         this.wordCounts = new TreeMap<>();
