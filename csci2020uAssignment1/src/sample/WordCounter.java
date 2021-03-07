@@ -109,6 +109,9 @@ public class WordCounter{
         }
     }
 
-    public Map<String, Integer> getWordCounts() {return wordCounts;}
+    public Map<String, Integer> getWordCounts() {
+        return wordCounts;
+    }
+
     //main method
 }
