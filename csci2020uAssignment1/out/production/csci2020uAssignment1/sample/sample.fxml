@@ -33,7 +33,7 @@
                <Insets bottom="50.0" />
             </HBox.margin>
          </Label>
-          <!-- Add Name Text Field -->
+
           <TextField fx:id="precText" />
       </children>
    </HBox>
@@ -41,7 +41,7 @@
       <children>
           <Label text="Accuracy : ">
     </Label>
-          <!-- Add Name Text Field -->
+
           <TextField fx:id="accurText" prefHeight="26.0" prefWidth="171.0" />
       </children>
    </HBox>
@@ -56,15 +56,4 @@
       <RowConstraints />
       <RowConstraints />
    </rowConstraints>
-
-    <Label text="Accuracy : ">
-    </Label>
-    <!-- Add Name Text Field -->
-    <TextField fx:id="accurText"/>
-
-    <Label text="Precision : " >
-    </Label>
-    <!-- Add Name Text Field -->
-    <TextField fx:id="precText"/>
-
 </GridPane>
