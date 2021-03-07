@@ -34,6 +34,11 @@ public class Main extends Application {
         WordCounter hamCounts = new WordCounter(ham);
         hamCounts.runWordCounter();
 
+        String hamFile2 = defaultDirectory + "/train/ham2";
+        File ham2 = new File(hamFile2);
+        WordCounter hamCounts2 = new WordCounter(ham2);
+        hamCounts2.runWordCounter();
+
         //now we have the two maps
 
         primaryStage.setScene(new Scene(root, 300, 275));
