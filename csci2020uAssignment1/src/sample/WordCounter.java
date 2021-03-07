@@ -1,7 +1,7 @@
 package sample;
 import java.io.*;
 import java.util.*;
-
+import java.lang.Math.*;
 
 public class WordCounter{
 
@@ -108,6 +108,15 @@ public class WordCounter{
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public float calculatePercent(Map<String, Float> wordMap,float prSW){
+        int n = wordMap.size();                     //should be all words in the map
+        int sum =0;
+        for (int i = 0; i < n; i++) {
+            sum += (Math.log((1.0f-prSW)) - Math.log(prSW));
+        }
+        return (float)(1/(1 + Math.pow(Math.E,sum)));
     }
 
     public Map<String, Float> getWordCounts() {

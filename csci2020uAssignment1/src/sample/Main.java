@@ -62,7 +62,7 @@ public class Main extends Application {
             String key = entry.getKey();
             if (hamWordMap.containsKey(key)) {
                 float hamValue = hamWordMap.get(key);
-                percentageSpamWord.put(key, ((hamValue/numberOfHamFiles) / ((value/numberOfSpamFiles)+(hamValue/numberOfHamFiles))));
+                percentageSpamWord.put(key, spamCounts.calculatePercent(spamWordMap,((hamValue/numberOfHamFiles) / ((value/numberOfSpamFiles)+(hamValue/numberOfHamFiles)))));
             }
         }
 
