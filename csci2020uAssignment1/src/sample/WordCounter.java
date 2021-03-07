@@ -9,6 +9,7 @@ public class WordCounter{
     private Map<String, Integer> wordCounts;
     //used to make sure a word is only counted once per file
     private Map<String, Integer> wordCountPerFile;
+    private int fileCounter = 0;                                                   
 
     public WordCounter(File input){
         wordCounts = new TreeMap<>();
@@ -21,7 +22,6 @@ public class WordCounter{
     */
     public void parseFile(File file) throws IOException{
         System.out.println("Starting parsing the file:" + file.getAbsolutePath());
-
         if(file.isDirectory()){
             //parse each file inside the directory
             File[] content = file.listFiles();
@@ -31,6 +31,7 @@ public class WordCounter{
                 //probably an easier way to do this
                 wordCountPerFile = new TreeMap<>();
                 parseFile(current);
+                fileCounter++;                                          //total file count
             }
         }else{
             Scanner scanner = new Scanner(file);
@@ -112,6 +113,7 @@ public class WordCounter{
     public Map<String, Integer> getWordCounts() {
         return wordCounts;
     }
+    public int getFileCounter(){return fileCounter;}
 
     //main method
 }
