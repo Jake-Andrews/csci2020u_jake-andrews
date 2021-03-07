@@ -34,7 +34,7 @@ public class ProbabilityCounter {
 
         //initilizing arrays based on number of files in directory
         //could of used arraylist, figured this was better
-        System.out.println(fileName);
+        //System.out.println(fileName);
 
         File temp = new File(fileName);
         File [] files = temp.listFiles();
@@ -109,7 +109,7 @@ public class ProbabilityCounter {
             else if (prSW == 0.0) {
                 prSW = 0.0000000001;
             }
-            System.out.println(prSW);
+            //System.out.println(prSW);
             double v = Math.log((1.0 - prSW)) - Math.log(prSW);
             spamProbability += v;
 

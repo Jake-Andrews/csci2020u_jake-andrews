@@ -22,11 +22,11 @@ import java.util.Map;
 
 public class DataSource {
     public static ObservableList<TestFile> files = FXCollections.observableArrayList();
+    private static Double accuracy;
+    private static Double precision;
     public Map<String, Double> wordSpamProbabilities;
     public String directoryName;
     public double numberOfFiles;
-    private double accuracy;
-    private double precision;
 
     public DataSource (Map<String, Double> spamMap, String fileName, double numFiles) {
         this.directoryName = fileName;
@@ -78,7 +78,7 @@ public class DataSource {
         System.out.println("Precision: " + precision);
 
     }
-    public Double getAccuracy(){return accuracy;}
-    public Double getPrecision(){return precision;}
+    public static double getAccuracy(){return accuracy;}
+    public static double getPrecision(){return precision;}
 }
 

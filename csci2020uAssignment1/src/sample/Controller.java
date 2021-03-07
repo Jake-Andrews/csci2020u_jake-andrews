@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 
 import java.awt.*;
 
@@ -44,8 +45,10 @@ public class Controller {
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("SpamProbRounded"));
         tableView.setItems(DataSource.getAllFiles());
-        accurText =new TextField((String)(DataSource.getAccuracy()));
-        precText =new TextField((String)(DataSource.getPrecision()));
+        //accurText =new TextField(String.valueOf(DataSource.getAccuracy()));
+        //precText =new TextField(String.valueOf((DataSource.getPrecision())));
+        accurText.setText(String.valueOf((DataSource.getAccuracy())));
+        precText.setText(String.valueOf((DataSource.getPrecision())));
         //tableView.getColumns().addAll(fileName, actualClass, spamProbability);
 
     }

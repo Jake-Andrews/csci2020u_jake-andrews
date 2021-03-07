@@ -4,7 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="45" vgap="45">
@@ -21,4 +22,13 @@
             <TableColumn fx:id="spamProbability" text="Spam Probability"/>
         </columns>
     </TableView>
+    <Label text="Accuracy : " GridPane.columnIndex="0" GridPane.rowIndex="1" >
+    </Label>
+    <!-- Add Name Text Field -->
+    <TextField fx:id="accurText" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Precision : " GridPane.columnIndex="0" GridPane.rowIndex="1" >
+    </Label>
+    <!-- Add Name Text Field -->
+    <TextField fx:id="precText" prefHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
 </GridPane>
