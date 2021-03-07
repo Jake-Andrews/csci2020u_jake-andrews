@@ -22,10 +22,19 @@ public class Main extends Application {
         String defaultDirectory = mainDirectory.getPath();
         System.out.println(defaultDirectory);
 
+        //Going through spam folders
         String spamFile = defaultDirectory + "/test/spam";
         File spam = new File(spamFile);
-        WordCounter test = new WordCounter(spam);
-        test.runWordCounter();
+        WordCounter spamCounts = new WordCounter(spam);
+        spamCounts.runWordCounter();
+
+        //Going through ham folders
+        String hamFile = defaultDirectory + "/test/ham";
+        File ham = new File(spamFile);
+        WordCounter hamCounts = new WordCounter(spam);
+        hamCounts.runWordCounter();
+
+        //now we have the two maps
 
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -33,8 +42,5 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-
-        launch(args);
-    }
+    public static void main(String[] args) {launch(args);}
 }
