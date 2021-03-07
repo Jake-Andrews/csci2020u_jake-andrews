@@ -10,26 +10,20 @@ public class Controller {
 
     @FXML private TableView tableView;
 
-    @FXML private TableColumn<Object, Object> studentID;
-    @FXML private TableColumn<Object, Object> assignmentMark;
-    @FXML private TableColumn<Object, Object> midtermMark;
-    @FXML private TableColumn<Object, Object> finalExamMark;
-    @FXML private TableColumn<Object, Object> finalMark;
-    @FXML private TableColumn<Object, Object> letterGrade;
+    @FXML private TableColumn<Object, Object> fileName;
+    @FXML private TableColumn<Object, Object> actualClass;
+    @FXML private TableColumn<Object, Object> spamProbability;
 
-    //private TableView<StudentRecord> student;
+    private TableView<TestFile> file;
 
     @FXML
     public void initialize() {
-
-        studentID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
-        assignmentMark.setCellValueFactory(new PropertyValueFactory<>("assignmentMark"));
-        midtermMark.setCellValueFactory(new PropertyValueFactory<>("midtermMark"));
-        finalExamMark.setCellValueFactory(new PropertyValueFactory<>("finalExamMark"));
-        finalMark.setCellValueFactory(new PropertyValueFactory<>("finalMark"));
-        letterGrade.setCellValueFactory(new PropertyValueFactory<>("letterGrade"));
-        //tableView.setItems(DataSource.getAllMarks());
-        //tableView.getColumns().addAll(studentID, assignmentMark, midtermMark, finalExamMark, finalMark, letterGrade);
+        //doesn't work yet, need to make another class I think?
+        fileName.setCellValueFactory(new PropertyValueFactory<>("fileName"));
+        actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
+        spamProbability.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
+        //tableView.setItems(DataSource.getAllFiles());
+        //tableView.getColumns().addAll(fileName, actualClass, spamProbability);
 
     }
 }

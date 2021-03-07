@@ -16,12 +16,9 @@
                GridPane.vgrow="ALWAYS"
                GridPane.rowIndex="0">
         <columns>
-            <TableColumn fx:id="studentID" text="SID"/>
-            <TableColumn fx:id="assignmentMark" text="Assignments"/>
-            <TableColumn fx:id="midtermMark" text="Midterm"/>
-            <TableColumn fx:id="finalExamMark" text="Final Exam"/>
-            <TableColumn fx:id="finalMark" text="Final Mark"/>
-            <TableColumn fx:id="letterGrade" text="Letter Grade"/>
+            <TableColumn fx:id="fileName" text="File"/>
+            <TableColumn fx:id="actualClass" text="Actual Class"/>
+            <TableColumn fx:id="spamProbability" text="Spam Probability"/>
         </columns>
     </TableView>
 </GridPane>

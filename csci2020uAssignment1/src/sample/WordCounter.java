@@ -6,20 +6,20 @@ import java.util.*;
 public class WordCounter{
 
     private File inputFileName;
-    private Map<String, Integer> wordCounts;
+    private Map<String, Float> wordCounts;
     //used to make sure a word is only counted once per file
-    private Map<String, Integer> wordCountPerFile;
-    private int fileCounter = 0;                                                   
+    private Map<String, Float> wordCountPerFile;
+    private float fileCounter = 0;
 
     public WordCounter(File input){
-        wordCounts = new TreeMap<>();
+        this.wordCounts = new TreeMap<>();
         this.inputFileName = input;
     }
-    /*
-    public void setInputFileName(File input) {
-        inputFileName = input;
+
+    public void setInputFileName(File inputFileName) {
+        this.inputFileName = inputFileName;
     }
-    */
+
     public void parseFile(File file) throws IOException{
         System.out.println("Starting parsing the file:" + file.getAbsolutePath());
         if(file.isDirectory()){
@@ -29,9 +29,9 @@ public class WordCounter{
             for(File current: content){
                 //create a new TreeMap for every new file, so a word is only counted once per file
                 //probably an easier way to do this
+                fileCounter++;  //total file count
                 wordCountPerFile = new TreeMap<>();
                 parseFile(current);
-                fileCounter++;                                          //total file count
             }
         }else{
             Scanner scanner = new Scanner(file);
@@ -57,11 +57,11 @@ public class WordCounter{
 
     private void countWord(String word, File file){
         if(wordCounts.containsKey(word) && !(wordCountPerFile.containsKey(word))){
-            int previous = wordCounts.get(word);
-            wordCountPerFile.put(word, 1);
+            float previous = wordCounts.get(word);
+            wordCountPerFile.put(word, 1.0f);
             wordCounts.put(word, previous+1);
         }else{
-            wordCounts.put(word, 1);
+            wordCounts.put(word, 1.0f);
         }
     }
 
@@ -79,7 +79,7 @@ public class WordCounter{
 
             while(keyIterator.hasNext()){
                 String key = keyIterator.next();
-                int count = wordCounts.get(key);
+                float count = wordCounts.get(key);
                 // testing minimum number of occurances
                 if(count>=minCount){
                     fileOutput.println(key + ": " + count);
@@ -101,7 +101,7 @@ public class WordCounter{
         System.out.println("Hello");
         try{
             parseFile(dataDir);
-            outputWordCount(2, outFile);
+            outputWordCount(0, outFile);
         }catch(FileNotFoundException e){
             System.err.println("Invalid input dir: " + dataDir.getAbsolutePath());
             e.printStackTrace();
@@ -110,10 +110,10 @@ public class WordCounter{
         }
     }
 
-    public Map<String, Integer> getWordCounts() {
+    public Map<String, Float> getWordCounts() {
         return wordCounts;
     }
-    public int getFileCounter(){return fileCounter;}
+    public float getFileCounter(){return fileCounter;}
 
     //main method
 }
