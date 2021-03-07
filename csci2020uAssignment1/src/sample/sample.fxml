@@ -16,7 +16,7 @@
                GridPane.vgrow="ALWAYS"
                GridPane.rowIndex="0">
         <columns>
-            <TableColumn fx:id="fileName" text="File"/>
+            <TableColumn fx:id="filename" text="File"/>
             <TableColumn fx:id="actualClass" text="Actual Class"/>
             <TableColumn fx:id="spamProbability" text="Spam Probability"/>
         </columns>
