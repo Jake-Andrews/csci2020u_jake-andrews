@@ -108,5 +108,7 @@ public class WordCounter{
             e.printStackTrace();
         }
     }
+
+    public Map<String, Integer> getWordCounts() {return wordCounts;}
     //main method
 }
