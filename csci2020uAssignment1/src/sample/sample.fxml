@@ -21,4 +21,10 @@
             <TableColumn fx:id="spamProbability" text="Spam Probability"/>
         </columns>
     </TableView>
+
+    <Label fx:id="accuracy" text="Accuracy: "/>
+    <Textfield fx:id="accurText"/>
+    <Label fx:id="precision" text="Precision: "/>
+    <Textfield fx:id="precText"/>
+
 </GridPane>

@@ -25,6 +25,8 @@ public class DataSource {
     public Map<String, Double> wordSpamProbabilities;
     public String directoryName;
     public double numberOfFiles;
+    private double accuracy;
+    private double precision;
 
     public DataSource (Map<String, Double> spamMap, String fileName, double numFiles) {
         this.directoryName = fileName;
@@ -42,8 +44,8 @@ public class DataSource {
         ProbabilityCounter hamFilesCounted = new ProbabilityCounter(wordSpamProbabilities, hamPath);
         hamFilesCounted.runWordCounter();
 
-        double accuracy = 0.0;
-        double precision = 0.0;
+        accuracy = 0.0;
+        precision = 0.0;
         double numTruePositives = 0.0;
         double numFalsePositives = 0.0;
 
@@ -76,5 +78,7 @@ public class DataSource {
         System.out.println("Precision: " + precision);
 
     }
+    public Double getAccuracy(){return accuracy;}
+    public Double getPrecision(){return precision;}
 }
 

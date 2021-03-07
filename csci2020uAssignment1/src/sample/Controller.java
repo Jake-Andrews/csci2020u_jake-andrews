@@ -5,6 +5,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.awt.*;
+
 /**
  * Controller class instantiates tableview format
  * for output window in main program
@@ -26,6 +28,11 @@ public class Controller {
 
     private TableView<TestFile> file;
 
+    @FXML private Label accuracy;
+    @FXML private Label precision;
+    @FXML private TextField accurText;
+    @FXML private TextField precText;
+
     public Controller() {
     }
 
@@ -37,6 +44,8 @@ public class Controller {
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("SpamProbRounded"));
         tableView.setItems(DataSource.getAllFiles());
+        accurText =new TextField((String)(DataSource.getAccuracy()));
+        precText =new TextField((String)(DataSource.getPrecision()));
         //tableView.getColumns().addAll(fileName, actualClass, spamProbability);
 
     }
