@@ -23,15 +23,15 @@ public class Main extends Application {
         System.out.println(defaultDirectory);
 
         //Going through spam folders
-        String spamFile = defaultDirectory + "/test/spam";
+        String spamFile = defaultDirectory + "/train/spam";
         File spam = new File(spamFile);
         WordCounter spamCounts = new WordCounter(spam);
         spamCounts.runWordCounter();
 
         //Going through ham folders
-        String hamFile = defaultDirectory + "/test/ham";
-        File ham = new File(spamFile);
-        WordCounter hamCounts = new WordCounter(spam);
+        String hamFile = defaultDirectory + "/train/ham";
+        File ham = new File(hamFile);
+        WordCounter hamCounts = new WordCounter(ham);
         hamCounts.runWordCounter();
 
         //now we have the two maps
