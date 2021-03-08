@@ -28,6 +28,7 @@ public class ProbabilityCounter {
     public int filesCounted = 0;
     private double spamProbability = 0.0;
 
+
     public ProbabilityCounter(Map<String, Double> wordSpamProbabilities, String fileName){
         this.wordSpamProbabilities = wordSpamProbabilities;
         this.inputFileName = fileName;
@@ -36,6 +37,7 @@ public class ProbabilityCounter {
         //could of used arraylist, figured this was better
         //System.out.println(fileName);
 
+        //number of files in the directory given.
         File temp = new File(fileName);
         File [] files = temp.listFiles();
 
@@ -45,7 +47,6 @@ public class ProbabilityCounter {
     }
 
     public void parseFile(File file) throws IOException {
-        //System.out.println("Starting parsing the file:" + file.getAbsolutePath());
         if(file.isDirectory()){
             //parse each file inside the directory
             File[] content = file.listFiles();
@@ -69,11 +70,9 @@ public class ProbabilityCounter {
             scanner.close();
         }
     }
-
+    //Is called once a file has no more words.
+    //Each spot in the array contains a files spam probability, and name.
     public void updateArrays(File currentFile){
-        //System.out.println(currentFile.getName());
-        //System.out.println(spamProbability);
-        //System.out.println((double) (1.0 / (1.0 + Math.pow(Math.E, spamProbability))));
         this.fileNames[filesCounted-1] = currentFile.getName();
         this.probabilitiesPerFile[filesCounted-1] = (double) (1.0 / (1.0 + Math.pow(Math.E, spamProbability)));;
     }
@@ -102,14 +101,12 @@ public class ProbabilityCounter {
         if (wordSpamProbabilities.containsKey(word)) {
             double prSW = wordSpamProbabilities.get(word);
             //avoids the log(0) and log(1-1)
-            //if (prSW !=1.0  && prSW !=0.0) {
             if (prSW == 1.0) {
                 prSW = 0.9999999999;
             }
             else if (prSW == 0.0) {
                 prSW = 0.0000000001;
             }
-            //System.out.println(prSW);
             double v = Math.log((1.0 - prSW)) - Math.log(prSW);
             spamProbability += v;
 

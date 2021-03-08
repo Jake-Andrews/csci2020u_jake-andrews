@@ -2,54 +2,105 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" prefHeight="644.0" prefWidth="764.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="sample.Controller">
-    <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="428.0" prefWidth="764.0" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="filename" prefWidth="109.0" text="File" />
-            <TableColumn fx:id="actualClass" minWidth="0.0" prefWidth="100.0" text="Actual Class" />
-            <TableColumn fx:id="spamProbability" prefWidth="230.0" text="Spam Probability" />
-        </columns>
-      <columnResizePolicy>
-         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-      </columnResizePolicy>
-      <GridPane.margin>
-         <Insets bottom="50.0" />
-      </GridPane.margin>
-    </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-      <children>
-      
-                <Label text="Precision : ">
-            <HBox.margin>
-               <Insets bottom="50.0" />
-            </HBox.margin>
-         </Label>
-          <!-- Add Name Text Field -->
-          <TextField fx:id="precText" />
-      </children>
-   </HBox>
-   <HBox prefHeight="74.0" prefWidth="498.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-      <children>
-          <Label text="Accuracy : ">
-    </Label>
-          <!-- Add Name Text Field -->
-          <TextField fx:id="accurText" prefHeight="26.0" prefWidth="171.0" />
-      </children>
-   </HBox>
+<GridPane alignment="center" prefHeight="644.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <TabPane prefHeight="651.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1">
+     <tabs>
+       <Tab text="Spam Files">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                      <TableView fx:id="tableView" prefHeight="612.0" prefWidth="764.0">
+                          <columns>
+                              <TableColumn fx:id="filename" prefWidth="109.0" text="File" />
+                              <TableColumn fx:id="actualClass" minWidth="0.0" prefWidth="100.0" text="Actual Class" />
+                              <TableColumn fx:id="spamProbability" prefWidth="230.0" text="Spam Probability" />
+                          </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                      </TableView>
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Statistics">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="447.0">
+                  <children>
+                     <HBox layoutX="14.0" layoutY="423.0" prefHeight="74.0" prefWidth="484.0">
+                        <children>
+                        
+                                  <Label prefWidth="131.0" text="Precision : ">
+                              <HBox.margin>
+                                 <Insets bottom="50.0" />
+                              </HBox.margin>
+                           </Label>
+                  
+                            <TextField fx:id="precText" editable="false" />
+                        </children>
+                     </HBox>
+                     <ImageView fx:id="hammerView" fitHeight="125.0" fitWidth="177.0" layoutX="537.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+
+                     </ImageView>
+                     <ImageView fx:id="spamView" fitHeight="101.0" fitWidth="110.0" layoutX="575.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+
+                     </ImageView>
+                     <HBox layoutX="14.0" layoutY="523.0" prefHeight="74.0" prefWidth="484.0">
+                        <children>
+                            <Label prefWidth="131.0" text="Accuracy : ">
+                            </Label>
+                  
+                            <TextField fx:id="accurText" editable="false" prefHeight="26.0" prefWidth="171.0" />
+                        </children>
+                     </HBox>
+                     <HBox layoutX="14.0" layoutY="306.0" prefHeight="74.0" prefWidth="484.0">
+                        <children>
+                           <Label prefHeight="16.0" prefWidth="131.0" text="SpamFilesTrained : ">
+                              <HBox.margin>
+                                 <Insets bottom="50.0" />
+                              </HBox.margin>
+                           </Label>
+                           <TextField fx:id="spamFilesTrained" editable="false" />
+                        </children>
+                     </HBox>
+                     <HBox layoutX="14.0" layoutY="210.0" prefHeight="74.0" prefWidth="484.0">
+                        <children>
+                           <Label prefHeight="16.0" prefWidth="131.0" text="HamFilesTrained:">
+                              <HBox.margin>
+                                 <Insets bottom="50.0" />
+                              </HBox.margin>
+                           </Label>
+                           <TextField fx:id="hamFilesTrained" editable="false" />
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="426.0" minHeight="350.0" prefHeight="426.0" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints maxHeight="76.0" minHeight="0.0" prefHeight="0.0" />
       <RowConstraints maxHeight="76.0" minHeight="0.0" prefHeight="0.0" />
       <RowConstraints />

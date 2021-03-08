@@ -5,9 +5,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
-import java.awt.*;
-
+import javax.swing.*;
+import java.awt.Label;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import java.io.File;
+import javafx.scene.image.*;
 /**
  * Controller class instantiates tableview format
  * for output window in main program
@@ -22,34 +27,38 @@ import java.awt.*;
 public class Controller {
 
     @FXML private TableView tableView;
-
     @FXML private TableColumn<Object, Object> filename;
     @FXML private TableColumn<Object, Object> actualClass;
     @FXML private TableColumn<Object, Object> spamProbability;
-
+    @FXML private ImageView hammerView;
+    @FXML private ImageView spamView;
     private TableView<TestFile> file;
 
-    @FXML private Label accuracy;
-    @FXML private Label precision;
     @FXML private TextField accurText;
     @FXML private TextField precText;
+    @FXML private TextField spamFilesTrained;
+    @FXML private TextField hamFilesTrained;
 
     public Controller() {
     }
 
     @FXML
     public void initialize() {
-        //tableView.getColumns().addAll(filename, actualClass, spamProbability);
 
+        //images
+        hammerView.setImage(new Image("resources/hammer.png"));
+        spamView.setImage(new Image("resources/spam.jpg")); 
+
+        //columns
         filename.setCellValueFactory(new PropertyValueFactory<>("filename"));
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("SpamProbRounded"));
         tableView.setItems(DataSource.getAllFiles());
-        //accurText =new TextField(String.valueOf(DataSource.getAccuracy()));
-        //precText =new TextField(String.valueOf((DataSource.getPrecision())));
+
+        //textfields
         accurText.setText(String.valueOf((DataSource.getAccuracy())));
         precText.setText(String.valueOf((DataSource.getPrecision())));
-        //tableView.getColumns().addAll(fileName, actualClass, spamProbability);
-
+        spamFilesTrained.setText(String.valueOf(DataSource.getNumberOfSpamFiles()));
+        hamFilesTrained.setText(String.valueOf(DataSource.getNumberOfHamFiles()));
     }
 }

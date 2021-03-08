@@ -22,33 +22,41 @@ import java.util.Map;
 
 public class DataSource {
     public static ObservableList<TestFile> files = FXCollections.observableArrayList();
-    private static Double accuracy;
-    private static Double precision;
+    private static Double accuracy = 0.0;
+    private static Double precision = 0.0;
     public Map<String, Double> wordSpamProbabilities;
     public String directoryName;
-    public double numberOfFiles;
+    public static double numberOfFiles;
+    public static double numberOfHamFiles;
+    public static double numberOfSpamFiles;
 
-    public DataSource (Map<String, Double> spamMap, String fileName, double numFiles) {
+    public DataSource (Map<String, Double> spamMap, String fileName, double numHamFiles, double numSpamFiles) {
         this.directoryName = fileName;
         this.wordSpamProbabilities = spamMap;
-        this.numberOfFiles = numFiles;
+        numberOfHamFiles = numHamFiles;
+        numberOfSpamFiles = numSpamFiles;
+        numberOfFiles = numHamFiles + numSpamFiles;
     }
 
     public static ObservableList<TestFile> getAllFiles() {return files;}
 
+    //loops through every file in both directories, uses ProbabilityCounter.
     public void calculateFileSpamProbabilities() {
         String spamPath = this.directoryName + "/test/spam";
         String hamPath = this.directoryName + "/test/ham";
+
+        //.runWordCounter goes through every file in the directory given to it and assigns probabiliy the file is spam
         ProbabilityCounter spamFilesCounted = new ProbabilityCounter(wordSpamProbabilities, spamPath);
         spamFilesCounted.runWordCounter();
         ProbabilityCounter hamFilesCounted = new ProbabilityCounter(wordSpamProbabilities, hamPath);
         hamFilesCounted.runWordCounter();
 
-        accuracy = 0.0;
-        precision = 0.0;
         double numTruePositives = 0.0;
         double numFalsePositives = 0.0;
 
+        //Since .runWordCounter contains the probabilities and filenames in an array
+        //need to loop through the array's to add each probability and filename to the
+        //observable list<TestFile> which is used in Controller to set table
         for (int k = 0; k < hamFilesCounted.filesCounted; k++) {
             files.add(new TestFile(hamFilesCounted.fileNames[k], hamFilesCounted.probabilitiesPerFile[k], "Ham"));
             if (hamFilesCounted.probabilitiesPerFile[k] < 0.50) {
@@ -57,13 +65,9 @@ public class DataSource {
             else {
                 numFalsePositives++;
             }
-            //System.out.println(hamFilesCounted.fileNames[k]);
-            //System.out.println(hamFilesCounted.probabilitiesPerFile[k]);
         }
-
+        //same as above just for spam
         for (int i = 0; i < spamFilesCounted.filesCounted; i++) {
-            //System.out.println(spamFilesCounted.probabilitiesPerFile[i]);
-            //System.out.println(spamFilesCounted.fileNames[i]);
             files.add(new TestFile(spamFilesCounted.fileNames[i], spamFilesCounted.probabilitiesPerFile[i], "Spam"));
             if (spamFilesCounted.probabilitiesPerFile[i] > 0.50) {
                 numTruePositives++;
@@ -72,7 +76,7 @@ public class DataSource {
                 numFalsePositives++;
             }
         }
-        accuracy = (numFalsePositives + numTruePositives) / this.numberOfFiles;
+        accuracy = (numFalsePositives + numTruePositives) / numberOfFiles;
         precision = numTruePositives / (numFalsePositives + numTruePositives);
         System.out.println("Accuracy: " + accuracy);
         System.out.println("Precision: " + precision);
@@ -80,5 +84,7 @@ public class DataSource {
     }
     public static double getAccuracy(){return accuracy;}
     public static double getPrecision(){return precision;}
+    public static double getNumberOfHamFiles(){return numberOfHamFiles;}
+    public static double getNumberOfSpamFiles(){return numberOfSpamFiles;}
 }
 
