@@ -1,8 +1,12 @@
 Project Information:
     This project utilizes TreeMaps in java to detect if an email is spam or not. The program reads files from a selected directory and analyzes each word in each file as part of the training phase. The program maps each unique word, paired with how many files contain that word into two maps, one for ham files and one for spam files. With these maps the program uses probability laws to calculate the probability if a file is spam, or ham, given a word, for each word. From this calculation, the probability of the file being spam given the file is calculated, done so by logarithmic and exponential equations to  normalize the data. The process is tested with test
 data, which is read through, and spam probability is calculated. Output is a table containing all the files tested, as well as the true class and the spam probability. Accuracy and precision of the calculations were included as well.
- ![](csci2020uAssignment1/src/resources/UI.png)
+ 
+Tab 1
+![](src/resources/UI_Screen_1.png)
 
+Tab 2
+![](src/resources/UI_Screen_2.png)
  
 Improvements:
     Improvements were made to this process by creating a list of words to be blacklisted from the calculations. Several of the top 10 most common english words were blacklisted, as well as some words that are extremely common in the email domain (ie. ‘sent’, ‘received’).

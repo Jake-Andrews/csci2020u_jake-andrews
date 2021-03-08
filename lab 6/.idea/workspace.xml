@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a189c1e-e6cf-4128-b107-b86bf5bd38fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/csci2020u_jake-andrews.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WordCounter2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../csci2020u_jake-andrews.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/csci2020u_jake-andrews/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/DataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/ProbabilityCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/TestFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/WordCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +21,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx-sdk-15.0.1/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../csci2020uAssignment1" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -69,5 +48,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
